@@ -1,0 +1,24 @@
+# Gradle / build
+.gradle/
+build/
+*/build/
+local.properties
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Secrets / signing — NIEMALS committen
+*.jks
+*.keystore
+keystore.properties
+signing.properties
+*.p12
+secrets.properties
+
+# Misc
+*.log
+.DS_Store
