@@ -16,7 +16,31 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WorkTracker">
 
-        <!-- Komponenten (Activity/Tile/Widget/Receiver/Provider) folgen in ihren Phasen. -->
+        <!-- §8 Quick-Settings-Tile -->
+        <service
+            android:name=".trigger.PunchTileService"
+            android:exported="true"
+            android:icon="@drawable/ic_launcher_foreground"
+            android:label="@string/tile_label"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.service.quicksettings.ACTIVE_TILE"
+                android:value="false" />
+        </service>
+
+        <!-- §8 Shortcut-Ziel: unsichtbare Trampoline-Activity -->
+        <activity
+            android:name=".trigger.PunchTrampolineActivity"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:noHistory="true"
+            android:taskAffinity=""
+            android:theme="@style/Theme.WorkTracker.Transparent" />
+
+        <!-- Weitere Komponenten (Widget/Receiver/Provider/MainActivity) folgen in ihren Phasen. -->
 
     </application>
 

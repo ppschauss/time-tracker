@@ -3,6 +3,7 @@ package de.pattaku.worktracker
 import android.app.Application
 import android.content.Context
 import de.pattaku.worktracker.di.AppContainer
+import de.pattaku.worktracker.trigger.ShortcutSetup
 
 class App : Application() {
 
@@ -12,7 +13,8 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
         container = AppContainer(this)
-        // Notification-Channel, Alarme und Shortcut werden in den jeweiligen Phasen ergänzt.
+        ShortcutSetup.ensure(this)
+        // Notification-Channel und Alarme werden in Phase 6 ergänzt.
     }
 
     companion object {
