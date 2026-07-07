@@ -24,6 +24,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.core.content.ContextCompat
+import de.pattaku.worktracker.export.CsvExporter
 import de.pattaku.worktracker.ui.history.HistoryScreen
 import de.pattaku.worktracker.ui.home.HomeScreen
 import de.pattaku.worktracker.ui.settings.SettingsScreen
@@ -45,8 +46,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    // Wird in Phase 8 durch den CsvExporter ersetzt.
-    private fun exportCsv() { /* Phase 8 */ }
+    private fun exportCsv() = CsvExporter(this).exportAndShare()
 
     private fun maybeRequestNotifications() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
