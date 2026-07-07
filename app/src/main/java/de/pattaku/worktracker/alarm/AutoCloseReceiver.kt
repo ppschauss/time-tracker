@@ -7,7 +7,6 @@ import de.pattaku.worktracker.App
 import de.pattaku.worktracker.data.model.Punch
 import de.pattaku.worktracker.data.model.PunchKind
 import de.pattaku.worktracker.domain.dayBounds
-import de.pattaku.worktracker.widget.PunchWidget
 import kotlinx.coroutines.launch
 import java.time.Instant
 
@@ -32,9 +31,6 @@ class AutoCloseReceiver : BroadcastReceiver() {
                 }
                 for (kind in kinds) {
                     container.punchRepository.insert(Punch(ts = now, kind = kind, auto = true))
-                }
-                if (kinds.isNotEmpty()) {
-                    PunchWidget().updateAll(context)
                 }
             } finally {
                 // Self-Reschedule auf das nächste Vorkommen.

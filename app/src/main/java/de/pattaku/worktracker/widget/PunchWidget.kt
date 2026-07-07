@@ -8,14 +8,18 @@ import androidx.glance.GlanceModifier
 import androidx.glance.GlanceTheme
 import androidx.glance.appwidget.GlanceAppWidget
 import androidx.glance.appwidget.provideContent
-import androidx.glance.appwidget.Button
+import androidx.glance.action.clickable
 import androidx.glance.background
 import androidx.glance.layout.Alignment
+import androidx.glance.layout.Box
 import androidx.glance.layout.Column
 import androidx.glance.layout.Spacer
 import androidx.glance.layout.fillMaxSize
 import androidx.glance.layout.height
 import androidx.glance.layout.padding
+import androidx.glance.action.Action
+import androidx.glance.unit.ColorProvider
+import androidx.compose.ui.graphics.Color
 import androidx.glance.text.FontWeight
 import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
@@ -59,16 +63,26 @@ class PunchWidget : GlanceAppWidget() {
             Spacer(GlanceModifier.height(8.dp))
 
             if (status.state == WorkState.DONE) {
-                Button(
-                    text = "Neu starten",
-                    onClick = PunchAction.reset(),
-                )
+                WidgetButton(text = "Neu starten", onClick = PunchAction.reset())
             } else {
-                Button(
-                    text = "Stempeln",
-                    onClick = PunchAction.punch(),
-                )
+                WidgetButton(text = "Stempeln", onClick = PunchAction.punch())
             }
+        }
+    }
+
+    @Composable
+    private fun WidgetButton(text: String, onClick: Action) {
+        Box(
+            modifier = GlanceModifier
+                .background(ColorProvider(Color(0xFF3DDC97)))
+                .padding(horizontal = 16.dp, vertical = 8.dp)
+                .clickable(onClick),
+            contentAlignment = Alignment.Center,
+        ) {
+            Text(
+                text = text,
+                style = TextStyle(color = ColorProvider(Color.Black), fontWeight = FontWeight.Bold),
+            )
         }
     }
 }

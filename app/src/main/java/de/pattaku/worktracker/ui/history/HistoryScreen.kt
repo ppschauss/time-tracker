@@ -98,6 +98,7 @@ private fun EventRow(e: Punch, onClick: () -> Unit) {
     }
 }
 
+@OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class)
 @Composable
 private fun EditDialog(
     punch: Punch,
