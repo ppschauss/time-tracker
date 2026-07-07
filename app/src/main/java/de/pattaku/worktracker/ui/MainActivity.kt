@@ -40,7 +40,6 @@ class MainActivity : ComponentActivity() {
         maybeRequestNotifications()
         setContent {
             WorkTrackerTheme {
-                // CSV-Export wird in Phase 8 (CsvExporter) verdrahtet.
                 AppScaffold(onExportCsv = { exportCsv() })
             }
         }

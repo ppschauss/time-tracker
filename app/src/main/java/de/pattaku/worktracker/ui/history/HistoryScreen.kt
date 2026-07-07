@@ -32,8 +32,6 @@ import de.pattaku.worktracker.domain.ZONE
 import de.pattaku.worktracker.domain.toHMM
 import de.pattaku.worktracker.ui.util.formatClock
 import de.pattaku.worktracker.ui.util.formatDate
-import java.time.Duration
-import java.time.Instant
 import java.time.LocalTime
 
 @Composable
