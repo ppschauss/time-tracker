@@ -1,6 +1,7 @@
 package de.pattaku.worktracker.di
 
 import android.content.Context
+import de.pattaku.worktracker.alarm.AlarmScheduler
 import de.pattaku.worktracker.data.PunchRepository
 import de.pattaku.worktracker.data.db.AppDatabase
 import de.pattaku.worktracker.domain.PunchUseCase
@@ -29,5 +30,14 @@ class AppContainer(context: Context) {
 
     val punchUseCase: PunchUseCase by lazy {
         PunchUseCase(punchRepository, settingsRepository::current, Clock.systemUTC())
+    }
+
+    val alarmScheduler: AlarmScheduler by lazy {
+        AlarmScheduler(appContext, settingsRepository, appScope)
+    }
+
+    /** Verdrahtet den Reschedule-Hook, sobald beide Seiten existieren (vermeidet Init-Zyklus). */
+    fun wire() {
+        settingsRepository.rescheduleAll = { alarmScheduler.rescheduleAll() }
     }
 }

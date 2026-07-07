@@ -52,7 +52,25 @@
                 android:resource="@xml/punch_widget_info" />
         </receiver>
 
-        <!-- Weitere Komponenten (Alarme/Boot/Provider/MainActivity) folgen in ihren Phasen. -->
+        <!-- §9 Alarm-Receiver (nicht exported, nur vom AlarmManager getriggert) -->
+        <receiver
+            android:name=".alarm.AutoCloseReceiver"
+            android:exported="false" />
+        <receiver
+            android:name=".alarm.ReminderReceiver"
+            android:exported="false" />
+
+        <!-- §9 Boot-Receiver: Alarme nach Reboot neu planen -->
+        <receiver
+            android:name=".alarm.BootReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Provider/MainActivity folgen in ihren Phasen. -->
 
     </application>
 
