@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">WorkTracker</string>
+
+    <string name="tile_label">Stempeln</string>
+    <string name="widget_description">Arbeitszeit stempeln</string>
+    <string name="shortcut_punch_short">Stempeln</string>
+    <string name="shortcut_punch_long">Arbeitszeit stempeln</string>
+
+    <string name="reminder_channel_name">Erinnerungen</string>
+    <string name="reminder_title">Noch nicht eingestempelt</string>
+    <string name="reminder_text">Tippe hier, um deinen Arbeitstag zu starten.</string>
+</resources>

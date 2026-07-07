@@ -1,0 +1,15 @@
+<resources>
+    <!-- Basis-Theme der Activity; Compose stellt das eigentliche Material3-Theme. -->
+    <style name="Theme.WorkTracker" parent="@android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/white</item>
+    </style>
+
+    <!-- Für die translucent Trampoline-Activity (kein Layout, kein Fenster-Chrome). -->
+    <style name="Theme.WorkTracker.Transparent" parent="@android:style/Theme.Translucent.NoTitleBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+</resources>
