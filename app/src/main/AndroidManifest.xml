@@ -40,7 +40,19 @@
             android:taskAffinity=""
             android:theme="@style/Theme.WorkTracker.Transparent" />
 
-        <!-- Weitere Komponenten (Widget/Receiver/Provider/MainActivity) folgen in ihren Phasen. -->
+        <!-- §8 Home-Screen-Widget (Glance) -->
+        <receiver
+            android:name=".widget.PunchWidgetReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/punch_widget_info" />
+        </receiver>
+
+        <!-- Weitere Komponenten (Alarme/Boot/Provider/MainActivity) folgen in ihren Phasen. -->
 
     </application>
 
